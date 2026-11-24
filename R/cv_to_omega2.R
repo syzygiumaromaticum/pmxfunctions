@@ -37,8 +37,8 @@ cv_to_omega2 <- function(
     diff_percent = round(appr / true * 100 - 100, digits = 1)
     omega = data.frame(
       "CV(%)" = cv * 100,
-      "True \U03C9²" = true,
-      "Appr \U03C9²" = appr,
+      "True \U03C9\U00B2" = true,
+      "Appr \U03C9\U00B2" = appr,
       "Difference(%)" = diff_percent,
       check.names = FALSE
     )
@@ -46,8 +46,8 @@ cv_to_omega2 <- function(
   if (is.vector(omega)) {
     omega <- signif(omega, digits = digits)
   } else {
-    omega[c("True \U03C9²", "Appr \U03C9²")] <- signif(
-      omega[c("True \U03C9²", "Appr \U03C9²")],
+    omega[c("True \u03C9\U00B2", "Appr \u03C9\U00B2")] <- signif(
+      omega[c("True \u03C9\U00B2", "Appr \U03C9\U00B2")],
       digits = digits
     )
     return(omega)
