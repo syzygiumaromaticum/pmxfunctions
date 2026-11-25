@@ -1,3 +1,28 @@
+#' Convert coefficient of variation (CV) to variance (ω²)
+#'
+#' @param cv A numeric vector of cv values.
+#' @param units Specify the way cv is supplied.
+#'  * "percent" treats cv as a percent (e.g. 30% is formatted as 30). This is
+#'  the default.
+#'  * "fraction" treats cv as a fraction (e.g. 30% is formatted as 0.3).
+#' @param method Specify the conversion method.
+#'  * "comparison" gives an overview of both method results and their difference
+#'  in percent. This is the default.
+#'  * "true" converts using the inverse of the 'true' method for conversion of
+#'  variance to CV.
+#'  * "approximate" converts using the inverse of the 'approximate' method for
+#'  conversion of variance to CV.
+#' @param digits Integer indicating the number of significant digits to be used
+#'  for the variance.
+#'
+#' @returns A data frame (method = "comparison") or a numeric vector
+#' (method = c("true", "approximate")).
+#' @export
+#'
+#' @examples
+#' cv_values <- c(32.3, 20.4) |>
+#'   cv_to_omega2()
+#'
 cv_to_omega2 <- function(
   cv,
   units = c("percent", "fraction"),
@@ -46,8 +71,8 @@ cv_to_omega2 <- function(
   if (is.vector(omega)) {
     omega <- signif(omega, digits = digits)
   } else {
-    omega[c("True \u03C9\U00B2", "Appr \u03C9\U00B2")] <- signif(
-      omega[c("True \u03C9\U00B2", "Appr \U03C9\U00B2")],
+    omega[c("True \U03C9\U00B2", "Appr \U03C9\U00B2")] <- signif(
+      omega[c("True \U03C9\U00B2", "Appr \U03C9\U00B2")],
       digits = digits
     )
     return(omega)
