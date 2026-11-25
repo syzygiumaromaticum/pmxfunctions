@@ -1,5 +1,9 @@
 #' Convert coefficient of variation (CV) to variance (ω²)
 #'
+#' @description
+#' Convert coefficient of variation (CV) to variance (ω²) and compare the output
+#' of different conversion methods.
+#'
 #' @param cv A numeric vector of cv values.
 #' @param units Specify the way cv is supplied.
 #'  * "percent" treats cv as a percent (e.g. 30% is formatted as 30). This is

@@ -39,7 +39,8 @@ A data frame (method = "comparison") or a numeric vector
 (method = c("true", "approximate")).
 }
 \description{
-Convert coefficient of variation (CV) to variance (ω²)
+Convert coefficient of variation (CV) to variance (ω²) and compare the output
+of different conversion methods.
 }
 \examples{
 cv_percent <- c(32.3, 20.4)
