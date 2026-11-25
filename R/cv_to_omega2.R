@@ -1,26 +1,31 @@
 #' Convert coefficient of variation (CV) to variance (ω²)
 #'
 #' @description
-#' Convert coefficient of variation (CV) to variance (ω²) and compare the output
-#' of different conversion methods.
+#' `cv_to_omega2()` converts coefficient of variation (CV) to variance (ω²) and
+#' allows you to compare the output of different conversion methods.
 #'
 #' @param cv A numeric vector of cv values.
 #' @param units Specify the way cv is supplied.
-#'  * "percent" treats cv as a percent (e.g. 30% is formatted as 30). This is
+#'  * `"percent"` treats cv as a percent (e.g. 30% is formatted as 30). This is
 #'  the default.
-#'  * "fraction" treats cv as a fraction (e.g. 30% is formatted as 0.3).
+#'  * `"fraction"` treats cv as a fraction (e.g. 30% is formatted as 0.3).
 #' @param method Specify the conversion method.
-#'  * "comparison" gives an overview of both method results and their difference
+#'  * `"comparison"` gives an overview of both method results and their difference
 #'  in percent. This is the default.
-#'  * "true" converts using the inverse of the 'true' method for conversion of
+#'  * `"true"` converts using the inverse of the 'true' method for conversion of
 #'  variance to CV.
-#'  * "approximate" converts using the inverse of the 'approximate' method for
+#'  * `"approximate"` converts using the inverse of the 'approximate' method for
 #'  conversion of variance to CV.
 #' @param digits Integer indicating the number of significant digits to be used
 #'  for the variance.
 #'
-#' @returns A data frame (method = "comparison") or a numeric vector
-#' (method = c("true", "approximate")).
+#' @returns When `method = "comparison"`, a data frame containing:
+#'  * The original CV;
+#'  * The variance according to the inverse of the 'true' method;
+#'  * The variance according to the inverse of the 'approximate' method;
+#'  * The difference between the 'true' and 'approximate' variance in percent.
+#'
+#'  When `method = "true"` or `"approximate"`, a numeric vector.
 #' @export
 #'
 #' @examples

@@ -16,18 +16,18 @@ cv_to_omega2(
 
 \item{units}{Specify the way cv is supplied.
 \itemize{
-\item "percent" treats cv as a percent (e.g. 30\% is formatted as 30). This is
+\item \code{"percent"} treats cv as a percent (e.g. 30\% is formatted as 30). This is
 the default.
-\item "fraction" treats cv as a fraction (e.g. 30\% is formatted as 0.3).
+\item \code{"fraction"} treats cv as a fraction (e.g. 30\% is formatted as 0.3).
 }}
 
 \item{method}{Specify the conversion method.
 \itemize{
-\item "comparison" gives an overview of both method results and their difference
+\item \code{"comparison"} gives an overview of both method results and their difference
 in percent. This is the default.
-\item "true" converts using the inverse of the 'true' method for conversion of
+\item \code{"true"} converts using the inverse of the 'true' method for conversion of
 variance to CV.
-\item "approximate" converts using the inverse of the 'approximate' method for
+\item \code{"approximate"} converts using the inverse of the 'approximate' method for
 conversion of variance to CV.
 }}
 
@@ -35,12 +35,19 @@ conversion of variance to CV.
 for the variance.}
 }
 \value{
-A data frame (method = "comparison") or a numeric vector
-(method = c("true", "approximate")).
+When \code{method = "comparison"}, a data frame containing:
+\itemize{
+\item The original CV;
+\item The variance according to the inverse of the 'true' method;
+\item The variance according to the inverse of the 'approximate' method;
+\item The difference between the 'true' and 'approximate' variance in percent.
+}
+
+When \code{method = "true"} or \code{"approximate"}, a numeric vector.
 }
 \description{
-Convert coefficient of variation (CV) to variance (ω²) and compare the output
-of different conversion methods.
+\code{cv_to_omega2()} converts coefficient of variation (CV) to variance (ω²) and
+allows you to compare the output of different conversion methods.
 }
 \examples{
 cv_percent <- c(32.3, 20.4)
