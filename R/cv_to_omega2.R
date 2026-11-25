@@ -20,8 +20,15 @@
 #' @export
 #'
 #' @examples
-#' cv_values <- c(32.3, 20.4) |>
-#'   cv_to_omega2()
+#' cv_percent <- c(32.3, 20.4)
+#' cv_to_omega2(cv_percent)
+#'
+#' # Specifying either method = "true" or "approximate" outputs a vector
+#' cv_to_omega2(cv_percent, method = "approximate")
+#'
+#' # Fractions also work
+#' cv_fraction <- c(0.323, 0.204)
+#' cv_to_omega2(cv_fraction, units = "fraction")
 #'
 cv_to_omega2 <- function(
   cv,
